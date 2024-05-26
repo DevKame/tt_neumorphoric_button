@@ -1,0 +1,53 @@
+
+:root {
+    --bg: rgb(128, 128, 128);
+    --light: hsl(0, 0%, 55%);
+    --dark: hsl(0, 0%, 45%);
+}
+body {
+    background: var(--bg);
+    height: 100vh;
+}
+
+button {
+    position: relative;
+    width: 40%;
+    height: 70%;
+    font-size: 50px;
+    font-weight: 300;
+    background-color: var(--bg);
+    border-radius: 50px;
+    border: none;
+    box-shadow: -15px -15px 60px var(--light),
+                15px 15px 60px var(--dark);
+    cursor: pointer;
+    color: var(--dark);
+    transition: color 1s linear;
+}
+button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 60px 5px var(--dark) inset;
+    transition: opacity .5s linear;
+    opacity: 1;
+}
+button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 60px 10px var(--light) inset;
+    transition: opacity .5s linear .5s;
+    opacity: 0;
+}
+button:hover {
+    color: #222;
+}
+button:hover::before {
+    opacity: 0;
+}
+button:hover::after {
+    opacity: 1;
+}
